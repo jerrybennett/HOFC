@@ -9,3 +9,8 @@ Topic.destroy_all
 10.times do
   Topic.create(title: Faker::Lorem.sentence(rand(4) + 1, true), description: Faker::Lorem.paragraphs(3, true).join('\n'))
 end
+
+Card.destroy_all
+20.times do
+  Card.create(title: Faker::Lorem.sentence(rand(4) + 1, true), content: Faker::Lorem.paragraphs(3, true).join('\n'), topic_id: Topic.all.sample.id)
+end
